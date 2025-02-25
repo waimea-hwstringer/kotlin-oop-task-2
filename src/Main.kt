@@ -143,14 +143,17 @@ class Gnome(val name: String, var strength: Int) {
      *   NAME: dead!
      */
     fun info(): String {
-        return ""
+        return "$name: strength $strength, health $health"
     }
 
     /**
      * A gnome is alive if its health > zero
      */
     fun alive(): Boolean {
-        return false
+        if(health > 0) {
+            return true
+        }
+        else(return false)
     }
 
     /**
