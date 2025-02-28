@@ -165,6 +165,9 @@ class Gnome(val name: String, var strength: Int) {
     fun train(numHours: Int) {
         println("$name trains for $numHours hours...")
 
+        strength += numHours/2
+
+        if (strength > 10) {strength = 10}
 
     }
 
@@ -178,8 +181,13 @@ class Gnome(val name: String, var strength: Int) {
     fun fight(opponent: Gnome) {
         println("$name vs ${opponent.name}...")
 
-
+        if (health>0 && opponent.health > 0) {
+            health -= 5*opponent.strength
+            opponent.health -= 5*strength
+        }
+        else {
+            println("We can't fight because someone is dead!")
+        }
     }
-
 }
 
